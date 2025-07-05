@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class AppService {
-  baseUrl = 'http://localhost:3400';
+  baseUrl = 'https://walletsystem-production.up.railway.app';
 
   constructor(private http: HttpClient) {}
 
