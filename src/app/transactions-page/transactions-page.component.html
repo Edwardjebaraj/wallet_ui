@@ -1,0 +1,32 @@
+<h2>Wallet Transactions</h2>
+<button class="export-btn" (click)="exportCSV()">Export CSV</button>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Amount</th>
+      <th>Balance</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let txn of transactions()">
+      <td>{{ txn.id }}</td>
+      <td>{{ txn.amount }}</td>
+      <td>{{ txn.balance }}</td>
+      <td>{{ txn.description }}</td>
+      <td>{{ txn.type }}</td>
+      <td>{{ txn.date | date: 'short' }}</td>
+    </tr>
+  </tbody>
+</table>
+<div class="pagination">
+    <button (click)="prevPage()" [disabled]="skip === 0">Prev</button>
+    <span>Showing {{ skip + 1 }} - {{ skip + limit }}</span>
+    <button (click)="nextPage()">Next</button>
+  </div>
+
+<a routerLink="/">Back to Wallet</a>
